@@ -1,0 +1,310 @@
+[gd_scene load_steps=17 format=3 uid="uid://du3yfasrjvh4s"]
+
+[ext_resource type="Script" path="res://Scripts/StageHandler.cs" id="1_4pjck"]
+[ext_resource type="Texture2D" uid="uid://hmc24tt2gmnw" path="res://Sprites/playerPH.png" id="1_8uxru"]
+[ext_resource type="Texture2D" uid="uid://btvveb2x5l1f3" path="res://Sprites/worldPH.png" id="1_klcvh"]
+[ext_resource type="Texture2D" uid="uid://bmmrn75mtvgy" path="res://Sprites/pushable.png" id="1_udp63"]
+[ext_resource type="Texture2D" uid="uid://dp35hm1wfugfk" path="res://Sprites/buttonPH.png" id="2_chem8"]
+[ext_resource type="Script" path="res://Scripts/PlayerMovement.cs" id="2_m2sck"]
+[ext_resource type="Script" path="res://Scripts/TileMapManipulation.cs" id="3_hqkcl"]
+[ext_resource type="Texture2D" uid="uid://cwbmpm85ek7pu" path="res://Sprites/goal.png" id="4_slrs7"]
+[ext_resource type="Script" path="res://Scripts/PlayerCollisionCheck.cs" id="4_witsd"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2i2gj"]
+texture = ExtResource("1_klcvh")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+0:0/0/physics_layer_2/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_2/angular_velocity = 0.0
+0:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_3/angular_velocity = 0.0
+0:0/0/physics_layer_4/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_4/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_1/angular_velocity = 0.0
+1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0/physics_layer_2/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_2/angular_velocity = 0.0
+1:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_3/angular_velocity = 0.0
+1:0/0/physics_layer_4/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_4/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_snsgp"]
+texture = ExtResource("2_chem8")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+0:0/0/physics_layer_2/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_2/angular_velocity = 0.0
+0:0/0/physics_layer_2/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_3/angular_velocity = 0.0
+0:0/0/physics_layer_4/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_4/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f83ip"]
+texture = ExtResource("4_slrs7")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+0:0/0/physics_layer_2/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_2/angular_velocity = 0.0
+0:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_3/angular_velocity = 0.0
+0:0/0/physics_layer_4/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_4/angular_velocity = 0.0
+0:0/0/physics_layer_4/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nlw15"]
+texture = ExtResource("1_udp63")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+0:0/0/physics_layer_2/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_2/angular_velocity = 0.0
+0:0/0/physics_layer_2/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:0/0/physics_layer_3/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_3/angular_velocity = 0.0
+0:0/0/physics_layer_3/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:0/0/physics_layer_4/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_4/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_kfgue"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 2
+physics_layer_1/collision_mask = 2
+physics_layer_2/collision_layer = 4
+physics_layer_2/collision_mask = 4
+physics_layer_3/collision_layer = 8
+physics_layer_3/collision_mask = 8
+physics_layer_4/collision_layer = 16
+physics_layer_4/collision_mask = 16
+sources/5 = SubResource("TileSetAtlasSource_snsgp")
+sources/6 = SubResource("TileSetAtlasSource_f83ip")
+sources/9 = SubResource("TileSetAtlasSource_nlw15")
+sources/10 = SubResource("TileSetAtlasSource_2i2gj")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oq2n0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8uxru")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsxk6"]
+size = Vector2(30, 30)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Map" type="Node" parent="." node_paths=PackedStringArray("congratulations")]
+script = ExtResource("1_4pjck")
+congratulations = NodePath("../Label")
+
+[node name="Stage01" type="TileMap" parent="Map"]
+tile_set = SubResource("TileSet_kfgue")
+format = 2
+layer_0/name = "passable"
+layer_0/tile_data = PackedInt32Array(-1, 10, 0, 65535, 10, 0, 131071, 10, 0, -65536, 10, 0, 0, 10, 0, 65536, 10, 0, -65535, 10, 0, 1, 10, 0, 65537, 10, 0, 2, 10, 0, 3, 10, 0, 4, 10, 0, 5, 10, 0, 6, 10, 0, 7, 10, 0, 18, 10, 0, 19, 10, 0, 20, 10, 0, -65515, 10, 0, 21, 10, 0, 65557, 10, 0, -65514, 10, 0, 22, 10, 0, 65558, 10, 0)
+layer_1/name = "wall"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 10
+layer_1/tile_data = PackedInt32Array(-65516, 65546, 0, 65556, 65546, 0, -131051, 65546, 0, -131050, 65546, 0, -131049, 65546, 0, -65513, 65546, 0, 23, 65546, 0, 65559, 65546, 0, 131095, 65546, 0, 131094, 65546, 0, 131093, 65546, 0, -65517, 65546, 0, 65554, 65546, 0, 65555, 65546, 0, -65518, 65546, 0, -65519, 65546, 0, 17, 65546, 0, 65553, 65546, 0, -65529, 65546, 0, -65528, 65546, 0, 65543, 65546, 0, 65544, 65546, 0, 8, 65546, 0, -65530, 65546, 0, -65531, 65546, 0, -65532, 65546, 0, -65533, 65546, 0, -65534, 65546, 0, 65542, 65546, 0, 65541, 65546, 0, 65540, 65546, 0, 65539, 65546, 0, 65538, 65546, 0, 131073, 65546, 0, 131072, 65546, 0, 196607, 65546, 0, -131071, 65546, 0, -131072, 65546, 0, -65537, 65546, 0, -65538, 65546, 0, -2, 65546, 0, 65534, 65546, 0, 131070, 65546, 0, 196606, 65546, 0, -131052, 65546, 0, 131092, 65546, 0, 131074, 65546, 0, -131070, 65546, 0)
+layer_2/name = "door"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "interact"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = 2
+layer_3/tile_data = PackedInt32Array(7, 5, 0, 22, 6, 0)
+layer_4/name = "pushable"
+layer_4/enabled = true
+layer_4/modulate = Color(1, 1, 1, 1)
+layer_4/y_sort_enabled = false
+layer_4/y_sort_origin = 0
+layer_4/z_index = 3
+layer_4/tile_data = PackedInt32Array()
+script = ExtResource("3_hqkcl")
+interactableTilePosition = PackedVector2Array(7, 0, 22, 0)
+manipulatedTilePosition = PackedVector2Array(18, 0, 0, 0)
+action = PackedStringArray("TELEPORT", "GOAL")
+
+[node name="Stage03" type="TileMap" parent="Map"]
+visible = false
+tile_set = SubResource("TileSet_kfgue")
+format = 2
+layer_0/name = "passable"
+layer_0/tile_data = PackedInt32Array(-65536, 10, 0, 0, 10, 0, 65536, 10, 0, -65535, 10, 0, 1, 10, 0, 65537, 10, 0, -65534, 10, 0, 2, 10, 0, 65538, 10, 0, -65533, 10, 0, 3, 10, 0, 65539, 10, 0, -65532, 10, 0, 4, 10, 0, 65540, 10, 0, -327677, 10, 0, -262141, 10, 0, -196605, 10, 0, -131069, 10, 0, -327676, 10, 0, -262140, 10, 0, -196604, 10, 0, -131068, 10, 0, -327675, 10, 0, -262139, 10, 0, -327674, 10, 0, -262138, 10, 0, -327673, 10, 0, -262137, 10, 0, -327672, 10, 0, -262136, 10, 0, 131075, 10, 0, 196611, 10, 0, 262147, 10, 0, 327683, 10, 0, 131076, 10, 0, 196612, 10, 0, 262148, 10, 0, 327684, 10, 0, 262149, 10, 0, 327685, 10, 0, 262150, 10, 0, 327686, 10, 0, 262151, 10, 0, 327687, 10, 0, 262152, 10, 0, 327688, 10, 0, -196601, 10, 0, -131065, 10, 0, -65529, 10, 0, 7, 10, 0, 65543, 10, 0, 131079, 10, 0, 196615, 10, 0, -196600, 10, 0, -131064, 10, 0, -65528, 10, 0, 8, 10, 0, 65544, 10, 0, 131080, 10, 0, 196616, 10, 0, -65527, 10, 0, 9, 10, 0, 65545, 10, 0, -65526, 10, 0, 10, 10, 0, 65546, 10, 0, -65525, 10, 0, 11, 10, 0, 65547, 10, 0, -65524, 10, 0, 12, 10, 0, 65548, 10, 0, -65523, 10, 0, 13, 10, 0, 65549, 10, 0, -65522, 10, 0, 14, 10, 0, 65550, 10, 0, -65521, 10, 0, 15, 10, 0, 65551, 10, 0, -65520, 10, 0, 16, 10, 0, 65552, 10, 0, -65519, 10, 0, 17, 10, 0, 65553, 10, 0, -65518, 10, 0, 18, 10, 0, 65554, 10, 0, -65517, 10, 0, 19, 10, 0, 65555, 10, 0, -65516, 10, 0, 20, 10, 0, 65556, 10, 0, -65515, 10, 0, 21, 10, 0, 65557, 10, 0, -65514, 10, 0, 22, 10, 0, 65558, 10, 0)
+layer_1/name = "wall"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 10
+layer_1/tile_data = PackedInt32Array(-2, 65546, 0, 65534, 65546, 0, 131070, 65546, 0, -1, 65546, 0, 65535, 65546, 0, 131071, 65546, 0, 196606, 65546, 0, 262142, 65546, 0, 196607, 65546, 0, 262143, 65546, 0, 131072, 65546, 0, 196608, 65546, 0, 131073, 65546, 0, 196609, 65546, 0, 131074, 65546, 0, 196610, 65546, 0, -131074, 65546, 0, -65538, 65546, 0, -131073, 65546, 0, -65537, 65546, 0, -196608, 65546, 0, -131072, 65546, 0, -196607, 65546, 0, -131071, 65546, 0, -196606, 65546, 0, -131070, 65546, 0, -196603, 65546, 0, -131067, 65546, 0, -65531, 65546, 0, 5, 65546, 0, 65541, 65546, 0, 131077, 65546, 0, 196613, 65546, 0, -196602, 65546, 0, -131066, 65546, 0, -65530, 65546, 0, 6, 65546, 0, 65542, 65546, 0, 131078, 65546, 0, 196614, 65546, 0, -458747, 65546, 0, -393211, 65546, 0, -458746, 65546, 0, -393210, 65546, 0, 393221, 65546, 0, 458757, 65546, 0, 393222, 65546, 0, 458758, 65546, 0, 393218, 65546, 0, 458754, 65546, 0, 393219, 65546, 0, 458755, 65546, 0, 393220, 65546, 0, 458756, 65546, 0, 262145, 65546, 0, 327681, 65546, 0, 393217, 65546, 0, 458753, 65546, 0, 262146, 65546, 0, 327682, 65546, 0, -458751, 65546, 0, -393215, 65546, 0, -458750, 65546, 0, -393214, 65546, 0, -458749, 65546, 0, -393213, 65546, 0, -458748, 65546, 0, -393212, 65546, 0, -327679, 65546, 0, -262143, 65546, 0, -327678, 65546, 0, -262142, 65546, 0, -196599, 65546, 0, -131063, 65546, 0, -196598, 65546, 0, -131062, 65546, 0, 131081, 65546, 0, 196617, 65546, 0, 131082, 65546, 0, 196618, 65546, 0, -196597, 65546, 0, -131061, 65546, 0, -196596, 65546, 0, -131060, 65546, 0, -196595, 65546, 0, -131059, 65546, 0, -196594, 65546, 0, -131058, 65546, 0, -196593, 65546, 0, -131057, 65546, 0, -196592, 65546, 0, -131056, 65546, 0, -196591, 65546, 0, -131055, 65546, 0, -196590, 65546, 0, -131054, 65546, 0, -196589, 65546, 0, -131053, 65546, 0, -196588, 65546, 0, -131052, 65546, 0, -196587, 65546, 0, -131051, 65546, 0, -196586, 65546, 0, -131050, 65546, 0, -196585, 65546, 0, -131049, 65546, 0, -65513, 65546, 0, 23, 65546, 0, 65559, 65546, 0, -196584, 65546, 0, -131048, 65546, 0, -65512, 65546, 0, 24, 65546, 0, 65560, 65546, 0, 131083, 65546, 0, 196619, 65546, 0, 131084, 65546, 0, 196620, 65546, 0, 131085, 65546, 0, 196621, 65546, 0, 131086, 65546, 0, 196622, 65546, 0, 131087, 65546, 0, 196623, 65546, 0, 131088, 65546, 0, 196624, 65546, 0, 131089, 65546, 0, 196625, 65546, 0, 131090, 65546, 0, 196626, 65546, 0, 131091, 65546, 0, 196627, 65546, 0, 131092, 65546, 0, 196628, 65546, 0, 131093, 65546, 0, 196629, 65546, 0, 131094, 65546, 0, 196630, 65546, 0, 131095, 65546, 0, 196631, 65546, 0, 131096, 65546, 0, 196632, 65546, 0, 393223, 65546, 0, 458759, 65546, 0, 393224, 65546, 0, 458760, 65546, 0, 393225, 65546, 0, 458761, 65546, 0, 393226, 65546, 0, 458762, 65546, 0, 262153, 65546, 0, 327689, 65546, 0, 262154, 65546, 0, 327690, 65546, 0, -458743, 65546, 0, -393207, 65546, 0, -327671, 65546, 0, -262135, 65546, 0, -458742, 65546, 0, -393206, 65546, 0, -327670, 65546, 0, -262134, 65546, 0, -458745, 65546, 0, -393209, 65546, 0, -458744, 65546, 0, -393208, 65546, 0)
+layer_2/name = "door"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "interact"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = 2
+layer_3/tile_data = PackedInt32Array(22, 6, 0)
+layer_4/name = "pushable"
+layer_4/enabled = true
+layer_4/modulate = Color(1, 1, 1, 1)
+layer_4/y_sort_enabled = false
+layer_4/y_sort_origin = 0
+layer_4/z_index = 3
+layer_4/tile_data = PackedInt32Array(1, 9, 0, -65534, 9, 0, 65538, 9, 0)
+script = ExtResource("3_hqkcl")
+interactableTilePosition = PackedVector2Array(22, 0)
+manipulatedTilePosition = PackedVector2Array(0, 0)
+action = PackedStringArray("GOAL")
+
+[node name="_PLAYER" type="Node" parent="."]
+
+[node name="Camera" type="Camera2D" parent="_PLAYER"]
+position = Vector2(280, 0)
+offset = Vector2(64, 0)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="_PLAYER" node_paths=PackedStringArray("area2d", "tilemap") groups=["playerBody"]]
+script = ExtResource("2_m2sck")
+area2d = NodePath("Area2D")
+MovementInterval = 0.2
+tilemap = NodePath("../../Map/Stage01")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="_PLAYER/CharacterBody2D"]
+z_index = 100
+sprite_frames = SubResource("SpriteFrames_oq2n0")
+animation = &"idle"
+offset = Vector2(16, 16)
+
+[node name="Area2D" type="Area2D" parent="_PLAYER/CharacterBody2D"]
+collision_mask = 20
+
+[node name="CShape" type="CollisionShape2D" parent="_PLAYER/CharacterBody2D/Area2D"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_wsxk6")
+debug_color = Color(0.415686, 0.478431, 0.360784, 0.419608)
+
+[node name="CollisionCheck" type="Node2D" parent="_PLAYER/CharacterBody2D"]
+position = Vector2(-32, 0)
+script = ExtResource("4_witsd")
+
+[node name="RayCastDown" type="RayCast2D" parent="_PLAYER/CharacterBody2D/CollisionCheck"]
+position = Vector2(48, 16)
+target_position = Vector2(0, 32)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RayCastLeft" type="RayCast2D" parent="_PLAYER/CharacterBody2D/CollisionCheck"]
+position = Vector2(48, 16)
+target_position = Vector2(-32, 0)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RayCastTop" type="RayCast2D" parent="_PLAYER/CharacterBody2D/CollisionCheck"]
+position = Vector2(48, 16)
+target_position = Vector2(0, -32)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RayCastRight" type="RayCast2D" parent="_PLAYER/CharacterBody2D/CollisionCheck"]
+position = Vector2(48, 16)
+target_position = Vector2(32, 0)
+collision_mask = 2
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RayCastDown2" type="RayCast2D" parent="_PLAYER/CharacterBody2D/CollisionCheck"]
+position = Vector2(48, 16)
+target_position = Vector2(0, 32)
+collision_mask = 8
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RayCastLeft2" type="RayCast2D" parent="_PLAYER/CharacterBody2D/CollisionCheck"]
+position = Vector2(48, 16)
+target_position = Vector2(-32, 0)
+collision_mask = 8
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RayCastTop2" type="RayCast2D" parent="_PLAYER/CharacterBody2D/CollisionCheck"]
+position = Vector2(48, 16)
+target_position = Vector2(0, -32)
+collision_mask = 8
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RayCastRight2" type="RayCast2D" parent="_PLAYER/CharacterBody2D/CollisionCheck"]
+position = Vector2(48, 16)
+target_position = Vector2(32, 0)
+collision_mask = 8
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 225.0
+offset_top = -284.0
+offset_right = 558.0
+offset_bottom = -232.0
+text = "PARABÉNS!
+AGORA PODE FECHAR O JOGO, VAI DORMIR"
+horizontal_alignment = 1
+
+[connection signal="OnChangeStageReference" from="Map" to="_PLAYER/CharacterBody2D" method="OnMap_OnStageChange"]
+[connection signal="OnFutureWallDetect" from="Map/Stage01" to="_PLAYER/CharacterBody2D" method="OnTileMap_OnFutureWallDetect"]
+[connection signal="OnStageChangeDetect" from="Map/Stage01" to="Map" method="OnStageChange"]
+[connection signal="OnTeleport" from="Map/Stage01" to="_PLAYER/CharacterBody2D" method="OnTileMap_OnTeleport"]
+[connection signal="OnFutureWallDetect" from="Map/Stage03" to="_PLAYER/CharacterBody2D" method="OnTileMap_OnFutureWallDetect"]
+[connection signal="OnStageChangeDetect" from="Map/Stage03" to="Map" method="OnStageChange"]
+[connection signal="OnTeleport" from="Map/Stage03" to="_PLAYER/CharacterBody2D" method="OnTileMap_OnTeleport"]
+[connection signal="OnFutureWallCheck" from="_PLAYER/CharacterBody2D" to="Map/Stage01" method="_on_character_body_2d_on_future_wall_check"]
+[connection signal="OnMovePushable" from="_PLAYER/CharacterBody2D" to="Map/Stage01" method="OnPlayerMovement_PushableMove"]
+[connection signal="body_entered" from="_PLAYER/CharacterBody2D/Area2D" to="Map/Stage01" method="OnArea2DCheck_BodyEntered"]
+[connection signal="OnCollisionCheck" from="_PLAYER/CharacterBody2D/CollisionCheck" to="_PLAYER/CharacterBody2D" method="OnPlayerCollisionCheck_CollisionCheck"]
+[connection signal="OnPushableCheck" from="_PLAYER/CharacterBody2D/CollisionCheck" to="_PLAYER/CharacterBody2D" method="OnPlayerCollisionCheck_PushableCheck"]
